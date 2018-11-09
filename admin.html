@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>YWC16 | Queueing System Admin</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:400,500,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="admin.css" />
+    <link rel="stylesheet" href="animation.css" />
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+  </head>
+  <body>
+    <div class="logo-container">
+      <a href="/"> <img class="logo" src="./images/logo.svg" alt=""/></a>
+    </div>
+
+    <center>
+      <div id="branch">BRANCH NAME</div>
+      <h1>NORMAL</h1>
+      <!-- <div class="d-flex justify-content-center align-items-center">
+        <h1 id="prefix"></h1>
+      </div> -->
+      <input id="current-queue" type="tel" value="0" min="0" max="80">
+      <br>
+      <br>
+      <button onclick="next()">
+        <h2> NEXT </h2>
+      </button>
+      <h1>CUSTOM</h1>
+      <input id="custom-queue" type="text">
+      <br>
+      <br>
+      <button onclick="publishCustomText()">
+        <h2> PUBLISH </h2>
+      </button>
+    </center>
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: 'AIzaSyANpRPym9opPpLf76fAN0pntLB9M3fOTtQ',
+        authDomain: 'hackathon-ca2a6.firebaseapp.com',
+        databaseURL: 'https://hackathon-ca2a6.firebaseio.com',
+        projectId: 'hackathon-ca2a6',
+        storageBucket: 'hackathon-ca2a6.appspot.com',
+        messagingSenderId: '818453846503'
+      }
+      firebase.initializeApp(config)
+    </script>
+    <script src="admin.js"></script>
+  </body>
+</html>

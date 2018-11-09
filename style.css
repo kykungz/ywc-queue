@@ -1,0 +1,135 @@
+@font-face {
+  font-family: 'Supermarket';
+  font-style: normal;
+  font-weight: 400;
+  src: url(supermarket-webfont.woff) format('woff');
+}
+
+body {
+  margin: 1em;
+  background-image: url(images/bg.png), linear-gradient(to bottom, white, #e3e0f1);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+* {
+  font-family: 'Supermarket', 'Raleway', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+.logo-container {
+  text-align: center;
+  margin: 2em 0;
+}
+.logo {
+  height: 80px;
+}
+
+.branch-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
+}
+
+.branch-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 1.5px solid #b3abd9;
+  padding: 0.75rem;
+  text-align: center;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.branch-card > img {
+  flex: 1;
+  margin: 2em 4em;
+  max-height: 200px;
+}
+
+.branch-card > h3 {
+  font-weight: bold;
+  font-family: 'Raleway';
+}
+
+.branch-name {
+  font-size: 30px;
+  margin-bottom: 0.25em;
+}
+
+.color-content {
+  color: #81b77d !important;
+}
+
+.color-content-dark {
+  color: #579553 !important;
+}
+
+.color-programming {
+  color: #78c8f4 !important;
+}
+
+.color-programming-dark {
+  color: #49b5f0 !important;
+}
+
+.color-designer {
+  color: #f7c778 !important;
+}
+
+.color-designer-dark {
+  color: #f4b348 !important;
+}
+
+.color-marketing {
+  color: #f797aa !important;
+}
+
+.color-marketing-dark {
+  color: #f36883 !important;
+}
+
+.color-purple {
+  color: #6d65ac !important;
+}
+
+.color-purple-dark {
+  color: #554e90 !important;
+}
+
+.current-queue-text {
+  font-size: 30px;
+  margin-bottom: 0.25em;
+}
+
+.current-queue {
+  font-size: 80px;
+  line-height: 1.5em;
+}
+
+.next-queue-text {
+  font-size: 25px;
+}
+
+@media (max-width: 1200px) {
+  .branch-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .branch-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
