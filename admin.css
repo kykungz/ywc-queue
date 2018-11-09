@@ -3,11 +3,20 @@
   text-decoration: underline;
 }
 
+#on-screen {
+  background: black;
+  color: white;
+  padding: 0 0.5em;
+  font-size: 40px;
+}
+
 input {
   font-size: 50px !important;
   text-align: center;
   width: 100%;
   box-sizing: border-box;
+  border: thin solid gray;
+  border-radius: 8px;
 }
 
 button {
@@ -17,4 +26,6 @@ button {
   border: none;
   border-radius: 8px;
   padding: 0.25em 1em;
+  cursor: pointer;
+  margin-top: 0.5em;
 }

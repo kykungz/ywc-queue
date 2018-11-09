@@ -21,19 +21,29 @@
 
     <center>
       <div id="branch">BRANCH NAME</div>
-      <h1>NORMAL</h1>
+      <h1>ON SCREEN: <span id="on-screen">-</span></h1>
+      <br>
+      <br>
+      <h1>QUEUE</h1>
       <!-- <div class="d-flex justify-content-center align-items-center">
         <h1 id="prefix"></h1>
       </div> -->
       <input id="current-queue" type="tel" value="0" min="0" max="80">
       <br>
-      <br>
-      <button onclick="next()">
-        <h2> NEXT </h2>
+      <button onclick="modifyQueue(-1)">
+        <h2> - </h2>
       </button>
+      <button onclick="modifyQueue(1)">
+        <h2> + </h2>
+      </button>
+      <button onclick="updateQueue()">
+        <h2> PUBLISH </h2>
+      </button>
+      <br>
+      <br>
+      <br>
       <h1>CUSTOM</h1>
       <input id="custom-queue" type="text">
-      <br>
       <br>
       <button onclick="publishCustomText()">
         <h2> PUBLISH </h2>

@@ -24,17 +24,36 @@ const animate = branch => {
   }, 10 * 1000)
 }
 
+const setText = (branch, snapshot) => {
+  let prefix = ""
+  switch (branch.toUpperCase()) {
+    case 'CONTENT':
+      prefix = 'CT'
+      break
+    case 'PROGRAMMING':
+      prefix = 'PG'
+      break
+    case 'DESIGNER':
+      prefix = 'DS'
+      break
+    case 'MARKETING':
+      prefix = 'MK'
+      break
+  }
+  if (snapshot.val().custom !== "") {
+    document.getElementById(`${branch}-queue`).innerText = snapshot.val().custom
+  } else {
+    document.getElementById(`${branch}-queue`).innerText = prefix + snapshot.val().current
+  }
+}
+
 // Content
 firebase
   .database()
   .ref('ywc-queue/content')
   .on('value', snapshot => {
     const branch = 'content'
-    if (snapshot.val().custom !== "") {
-      document.getElementById(`${branch}-queue`).innerText = snapshot.val().custom
-    } else {
-      document.getElementById(`${branch}-queue`).innerText = snapshot.val().current
-    }
+    setText(branch, snapshot)
     animate('content')
   })
 
@@ -44,11 +63,7 @@ firebase
   .ref('ywc-queue/programming')
   .on('value', snapshot => {
     const branch = 'programming'
-    if (snapshot.val().custom !== "") {
-      document.getElementById(`${branch}-queue`).innerText = snapshot.val().custom
-    } else {
-      document.getElementById(`${branch}-queue`).innerText = snapshot.val().current
-    }
+    setText(branch, snapshot)
     animate(branch)
   })
 
@@ -58,11 +73,7 @@ firebase
   .ref('ywc-queue/designer')
   .on('value', snapshot => {
     const branch = 'designer'
-    if (snapshot.val().custom !== "") {
-      document.getElementById(`${branch}-queue`).innerText = snapshot.val().custom
-    } else {
-      document.getElementById(`${branch}-queue`).innerText = snapshot.val().current
-    }
+    setText(branch, snapshot)
     animate(branch)
   })
 
@@ -72,10 +83,6 @@ firebase
   .ref('ywc-queue/marketing')
   .on('value', snapshot => {
     const branch = 'marketing'
-    if (snapshot.val().custom !== "") {
-      document.getElementById(`${branch}-queue`).innerText = snapshot.val().custom
-    } else {
-      document.getElementById(`${branch}-queue`).innerText = snapshot.val().current
-    }
+    setText(branch, snapshot)
     animate(branch)
   })
