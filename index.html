@@ -14,7 +14,7 @@
   </head>
   <body>
     <div class="logo-container">
-      <a href="/ywc-queue"> <img class="logo" src="./images/logo.svg" alt=""/></a>
+      <a href="/ywc-queue"> <img id="ywc-logo" class="logo" src="./images/logo.svg" alt=""/></a>
     </div>
     <div class="branch-container">
       <div
@@ -22,16 +22,13 @@
         id="content-card"
         class="branch-card"
       >
-        <img src="https://ywc16.ywc.in.th/images/branch/content.svg" alt="" />
-        <h3 class="color-content-dark branch-name">WEB CONTENT</h3>
-        <br />
-        <h1 class="current-queue-text color-purple"><u>คิวปัจจุบัน</u></h1>
-        <h1 id="content-queue" class="current-queue color-content-dark">-</h1>
         <div>
-          <div class="next-queue-text">
-            คิวต่อไป
-            <b> <span class="next-queue color-content-dark">-</span> </b>
-          </div>
+          <img src="https://ywc16.ywc.in.th/images/branch/content.svg" alt="" />
+          <h3 class="color-content-dark branch-name">WEB CONTENT</h3>
+        </div>
+        <div>
+          <h1 class="current-queue-text color-purple"><u>คิวปัจจุบัน</u></h1>
+          <h1 id="content-queue" class="current-queue color-content-dark">-</h1>
         </div>
       </div>
       <div
@@ -39,21 +36,18 @@
         id="programming-card"
         class="branch-card"
       >
-        <img
-          src="https://ywc16.ywc.in.th/images/branch/programming.svg"
-          alt=""
-        />
-        <h3 class="color-programming-dark branch-name">WEB PROGRAMMING</h3>
-        <br />
-        <h1 class="current-queue-text color-purple"><u>คิวปัจจุบัน</u></h1>
-        <h1 id="programming-queue" class="current-queue color-programming-dark">
-          -
-        </h1>
         <div>
-          <div class="next-queue-text">
-            คิวต่อไป
-            <b> <span class="next-queue color-programming-dark">-</span> </b>
-          </div>
+          <img
+            src="https://ywc16.ywc.in.th/images/branch/programming.svg"
+            alt=""
+          />
+          <h3 class="color-programming-dark branch-name">WEB PROGRAMMING</h3>
+        </div>
+        <div>
+          <h1 class="current-queue-text color-purple"><u>คิวปัจจุบัน</u></h1>
+          <h1 id="programming-queue" class="current-queue color-programming-dark">
+            -
+          </h1>
         </div>
       </div>
       <div
@@ -61,17 +55,15 @@
         id="designer-card"
         class="branch-card"
       >
-        <img src="https://ywc16.ywc.in.th/images/branch/designer.svg" alt="" />
-        <h3 class="color-designer-dark branch-name">WEB DESIGNER</h3>
-        <br />
-        <h1 class="current-queue-text color-purple"><u>คิวปัจจุบัน</u></h1>
-        <h1 id="designer-queue" class="current-queue color-designer-dark">
-          -
-        </h1>
         <div>
-          <div class="next-queue-text">
-            คิวต่อไป <b> <span class="color-designer-dark">-</span> </b>
-          </div>
+          <img src="https://ywc16.ywc.in.th/images/branch/designer.svg" alt="" />
+          <h3 class="color-designer-dark branch-name">WEB DESIGNER</h3>
+        </div>
+        <div>
+          <h1 class="current-queue-text color-purple"><u>คิวปัจจุบัน</u></h1>
+          <h1 id="designer-queue" class="current-queue color-designer-dark">
+            -
+          </h1>
         </div>
       </div>
       <div
@@ -79,23 +71,22 @@
         id="marketing-card"
         class="branch-card"
       >
-        <img src="https://ywc16.ywc.in.th/images/branch/marketing.svg" alt="" />
-        <h3 class="color-marketing-dark branch-name">WEB MARKETING</h3>
-        <br />
-        <h1 class="current-queue-text color-purple"><u>คิวปัจจุบัน</u></h1>
-        <h1 id="marketing-queue" class="current-queue color-marketing-dark">
-          -
-        </h1>
         <div>
-          <div class="next-queue-text">
-            คิวต่อไป
-            <b> <span class="next-queue color-marketing-dark">-</span> </b>
-          </div>
+          <img src="https://ywc16.ywc.in.th/images/branch/marketing.svg" alt="" />
+          <h3 class="color-marketing-dark branch-name">WEB MARKETING</h3>
+        </div>
+        <div>
+          <h1 class="current-queue-text color-purple"><u>คิวปัจจุบัน</u></h1>
+          <h1 id="marketing-queue" class="current-queue color-marketing-dark">
+            -
+          </h1>
         </div>
       </div>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
     <script>
       // Initialize Firebase
       var config = {
@@ -108,6 +99,8 @@
       }
       firebase.initializeApp(config)
     </script>
+    <script src="./lib/hammer.js"></script>
     <script src="index.js"></script>
+    <script src="login.js"></script>
   </body>
 </html>

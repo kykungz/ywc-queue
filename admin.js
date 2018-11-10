@@ -1,29 +1,25 @@
+firebase.auth().onAuthStateChanged(user => {
+  if (!user) {
+    window.location = './index.html'
+  }
+})
+
 const branch = window.location.search.split('=')[1]
 let prefix = ''
 switch (branch.toUpperCase()) {
   case 'CONTENT':
-    prefix = 'CT'
+    prefix = 'C'
     break
   case 'PROGRAMMING':
-    prefix = 'PG'
+    prefix = 'P'
     break
   case 'DESIGNER':
-    prefix = 'DS'
+    prefix = 'D'
     break
   case 'MARKETING':
-    prefix = 'MK'
+    prefix = 'M'
     break
 }
-
-// const next = () => {
-//   const number = parseInt(document.getElementById('current-queue').value) + 1
-//   const text = prefix + number.toString().padStart(2, '0')
-//   document.getElementById('current-queue').value = text
-//   firebase.database().ref(`ywc-queue/${branch}`).set({
-//     current: text,
-//     custom: ""
-//   })
-// }
 
 const modifyQueue = amount => {
   document.getElementById('current-queue').value = (
@@ -41,6 +37,9 @@ const updateQueue = () => {
     .set({
       current: value,
       custom: ''
+    })
+    .catch(err => {
+      alert(err)
     })
 }
 

@@ -7,7 +7,8 @@
 
 body {
   margin: 1em;
-  background-image: url(images/bg.png), linear-gradient(to bottom, white, #e3e0f1);
+  background-image: url(images/bg.png),
+    linear-gradient(to bottom, white, #e3e0f1);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -52,13 +53,22 @@ h4 {
   background-color: rgba(255, 255, 255, 0.6);
 }
 
-.branch-card > img {
+.branch-card > div {
+  width: 100%;
+}
+
+.branch-card > div:first-child  {
+  margin: 1em;
+}
+
+.branch-card img {
+  box-sizing: border-box;
   flex: 1;
   margin: 2em 4em;
   max-height: 200px;
 }
 
-.branch-card > h3 {
+.branch-card h3 {
   font-weight: bold;
   font-family: 'Raleway';
 }
@@ -115,7 +125,8 @@ h4 {
 
 .current-queue {
   font-size: 80px;
-  line-height: 1.5em;
+  line-height: 1em;
+  margin: 0.25em 0;
 }
 
 .next-queue-text {
@@ -128,8 +139,31 @@ h4 {
   }
 }
 
+/* mobile */
 @media (max-width: 600px) {
   .branch-container {
     grid-template-columns: repeat(1, 1fr);
+    
+  }
+  .branch-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .current-queue {
+    font-size: 50px;
+  }
+  .branch-name {
+    font-size: 20px;
+    margin-bottom: 0.25em;
+  }
+  .branch-card img {
+    margin: 0;
+    margin-bottom: 1em;
+    max-height: 80px;
+  }
+  .branch-card > div:first-child  {
+    margin: 1em 0;
   }
 }

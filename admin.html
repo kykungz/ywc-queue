@@ -12,11 +12,10 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="admin.css" />
     <link rel="stylesheet" href="animation.css" />
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
   </head>
   <body>
     <div class="logo-container">
-      <a href="/ywc-queue"> <img class="logo" src="./images/logo.svg" alt=""/></a>
+      <a href="/ywc-queue"> <img id="ywc-logo" class="logo" src="./images/logo.svg" alt=""/></a>
     </div>
 
     <center>
@@ -25,9 +24,6 @@
       <br>
       <br>
       <h1>QUEUE</h1>
-      <!-- <div class="d-flex justify-content-center align-items-center">
-        <h1 id="prefix"></h1>
-      </div> -->
       <input id="current-queue" type="tel" value="0" min="0" max="80">
       <br>
       <button onclick="modifyQueue(-1)">
@@ -50,7 +46,9 @@
       </button>
     </center>
 
-    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
     <script>
       // Initialize Firebase
       var config = {
@@ -63,6 +61,8 @@
       }
       firebase.initializeApp(config)
     </script>
+    <script src="./lib/hammer.js"></script>
     <script src="admin.js"></script>
+    <script src="login.js"></script>
   </body>
 </html>
