@@ -140,22 +140,23 @@ h4 {
 }
 
 /* mobile */
-@media (max-width: 600px) {
+@media (max-width: 780px) {
   .branch-container {
     grid-template-columns: repeat(1, 1fr);
     
   }
   .branch-card {
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
   .current-queue {
-    font-size: 50px;
+    font-size: 40px;
   }
   .branch-name {
-    font-size: 20px;
+    font-size: 14px;
     margin-bottom: 0.25em;
   }
   .branch-card img {
