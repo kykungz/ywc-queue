@@ -7,6 +7,26 @@ const timer = {
 
 const SECOND = 1000
 
+const login = () => {
+  if (firebase.auth().currentUser) {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => alert('Logged out'))
+  } else {
+    const password = prompt('Enter password')
+    firebase
+      .auth()
+      .signInWithEmailAndPassword('jackykongpon@gmail.com', password)
+      .then(() => {
+        alert('Welcome Admin!')
+      })
+      .catch(() => {
+        alert('Incorrect Password')
+      })
+  }
+}
+
 const changePage = branch => {
   if (firebase.auth().currentUser) {
     window.location = `./admin.html?branch=${branch}`
@@ -31,7 +51,7 @@ const animate = branch => {
 
 const setText = (branch, snapshot) => {
   const value = snapshot.val()
-  let prefix = ""
+  let prefix = ''
   switch (branch.toUpperCase()) {
     case 'CONTENT':
       prefix = 'C'
@@ -46,16 +66,20 @@ const setText = (branch, snapshot) => {
       prefix = 'M'
       break
   }
-  if (value.custom !== "") {
+  if (value.custom !== '') {
     document.getElementById(`${branch}-queue`).innerText = value.custom
   } else {
-    document.getElementById(`${branch}-queue`).innerText = prefix + value.current
+    document.getElementById(`${branch}-queue`).innerText =
+      prefix + value.current
   }
 }
 
-['content', 'programming', 'designer', 'marketing'].forEach(branch => {
-  firebase.database().ref(`ywc-queue/${branch}`).on('value', snapshot => {
-    setText(branch, snapshot)
-    animate(branch)
-  })
+;['content', 'programming', 'designer', 'marketing'].forEach(branch => {
+  firebase
+    .database()
+    .ref(`ywc-queue/${branch}`)
+    .on('value', snapshot => {
+      setText(branch, snapshot)
+      animate(branch)
+    })
 })
