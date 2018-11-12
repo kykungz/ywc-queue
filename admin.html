@@ -14,15 +14,22 @@
     <link rel="stylesheet" href="animation.css" />
   </head>
   <body>
+    <!-- YWC Logo -->
     <div class="logo-container">
-      <a href="/ywc-queue"> <img id="ywc-logo" class="logo" src="./images/logo.svg" alt=""/></a>
+      <a href="./index.html">
+        <img id="ywc-logo" class="logo" src="./images/logo.svg" alt="">
+      </a>
     </div>
 
+    <!-- Remote -->
     <center>
       <div id="branch">BRANCH NAME</div>
       <h1>ON SCREEN: <div id="on-screen">-</div></h1>
+
       <br>
       <br>
+
+      <!-- Regular Queue -->
       <h1>QUEUE</h1>
       <input id="current-queue" type="tel" value="0" min="0" max="80">
       <br>
@@ -32,12 +39,15 @@
       <button onclick="modifyQueue(1)">
         <h2> + </h2>
       </button>
-      <button onclick="updateQueue()">
+      <button onclick="publishQueue()">
         <h2> PUBLISH </h2>
       </button>
+
       <br>
       <br>
       <br>
+
+      <!-- Custom Queue -->
       <h1>CUSTOM</h1>
       <input id="custom-queue" type="text">
       <br>
@@ -45,6 +55,10 @@
         <h2> PUBLISH </h2>
       </button>
     </center>
+
+    <footer>
+      YWC Queueing System @2018 Created by <a href="https://github.com/kykungz">Kongpon C.</a>
+    </footer>
 
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>
@@ -62,6 +76,7 @@
       firebase.initializeApp(config)
     </script>
     <script src="./lib/hammer.js"></script>
+    <script src="./lib/getPrefix.js"></script>
     <script src="admin.js"></script>
     <script src="login.js"></script>
   </body>

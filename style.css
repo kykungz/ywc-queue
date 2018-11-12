@@ -5,6 +5,10 @@
   src: url(supermarket-webfont.woff) format('woff');
 }
 
+* {
+  font-family: 'Supermarket', 'Raleway', sans-serif;
+}
+
 body {
   margin: 1em;
   background-image: url(images/bg.png),
@@ -15,8 +19,10 @@ body {
   min-height: 100vh;
 }
 
-* {
-  font-family: 'Supermarket', 'Raleway', sans-serif;
+footer {
+  text-align: center;
+  margin-top: 2em;
+  color: gray;
 }
 
 h1,
@@ -30,8 +36,9 @@ h4 {
   text-align: center;
   margin: 2em 0;
 }
+
 .logo {
-  height: 80px;
+  height: 70px;
 }
 
 .branch-container {
@@ -57,7 +64,7 @@ h4 {
   width: 100%;
 }
 
-.branch-card > div:first-child  {
+.branch-card > div:first-child {
   margin: 1em;
 }
 
@@ -65,6 +72,7 @@ h4 {
   box-sizing: border-box;
   flex: 1;
   margin: 2em 4em;
+  margin-top: 1em;
   max-height: 200px;
 }
 
@@ -74,7 +82,7 @@ h4 {
 }
 
 .branch-name {
-  font-size: 30px;
+  font-size: 24px;
   margin-bottom: 0.25em;
 }
 
@@ -119,7 +127,7 @@ h4 {
 }
 
 .current-queue-text {
-  font-size: 30px;
+  font-size: 24px;
   margin-bottom: 0.25em;
 }
 
@@ -143,7 +151,6 @@ h4 {
 @media (max-width: 780px) {
   .branch-container {
     grid-template-columns: repeat(1, 1fr);
-    
   }
   .branch-card {
     overflow: hidden;
@@ -164,7 +171,7 @@ h4 {
     margin-bottom: 1em;
     max-height: 80px;
   }
-  .branch-card > div:first-child  {
+  .branch-card > div:first-child {
     margin: 1em 0;
   }
 }

@@ -1,3 +1,5 @@
+const duration = 10 * 1000
+const branches = ['content', 'programming', 'designer', 'marketing']
 const timer = {
   content: null,
   programming: null,
@@ -5,25 +7,14 @@ const timer = {
   marketing: null
 }
 
-const SECOND = 1000
-
 const login = () => {
   if (firebase.auth().currentUser) {
-    firebase
-      .auth()
-      .signOut()
-      .then(() => alert('Logged out'))
+    firebase.auth().signOut().then(() => alert('Logged out'))
   } else {
     const password = prompt('Enter password')
-    firebase
-      .auth()
-      .signInWithEmailAndPassword('jackykongpon@gmail.com', password)
-      .then(() => {
-        alert('Welcome Admin!')
-      })
-      .catch(() => {
-        alert('Incorrect Password')
-      })
+    firebase.auth().signInWithEmailAndPassword('jackykongpon@gmail.com', password)
+      .then(() => alert('Welcome Admin!'))
+      .catch(() => alert('Incorrect Password'))
   }
 }
 
@@ -46,40 +37,14 @@ const animate = branch => {
   timer[branch] = setTimeout(() => {
     document.getElementById(textId).classList.remove('tada')
     document.getElementById(cardId).classList.remove(alertName)
-  }, 10 * SECOND)
+  }, duration)
 }
 
-const setText = (branch, snapshot) => {
-  const value = snapshot.val()
-  let prefix = ''
-  switch (branch.toUpperCase()) {
-    case 'CONTENT':
-      prefix = 'C'
-      break
-    case 'PROGRAMMING':
-      prefix = 'P'
-      break
-    case 'DESIGNER':
-      prefix = 'D'
-      break
-    case 'MARKETING':
-      prefix = 'M'
-      break
-  }
-  if (value.custom !== '') {
-    document.getElementById(`${branch}-queue`).innerText = value.custom
-  } else {
-    document.getElementById(`${branch}-queue`).innerText =
-      prefix + value.current
-  }
-}
-
-;['content', 'programming', 'designer', 'marketing'].forEach(branch => {
-  firebase
-    .database()
-    .ref(`ywc-queue/${branch}`)
-    .on('value', snapshot => {
-      setText(branch, snapshot)
-      animate(branch)
-    })
+branches.forEach(branch => {
+  firebase.database().ref(`ywc-queue/${branch}`).on('value', snapshot => {
+    const value = snapshot.val()
+    const text = value.custom !== '' ? value.custom : getPrefix(branch) + value.current
+    document.getElementById(`${branch}-queue`).innerText = text
+    animate(branch)
+  })
 })

@@ -1,75 +1,47 @@
-firebase.auth().onAuthStateChanged(user => {
-  if (!user) {
-    window.location = './index.html'
-  }
-})
+const branch = window.location.search.split('branch=')[1]
 
-const branch = window.location.search.split('=')[1]
-let prefix = ''
-switch (branch.toUpperCase()) {
-  case 'CONTENT':
-    prefix = 'C'
-    break
-  case 'PROGRAMMING':
-    prefix = 'P'
-    break
-  case 'DESIGNER':
-    prefix = 'D'
-    break
-  case 'MARKETING':
-    prefix = 'M'
-    break
+const setup = () => {
+  if (!(branch && getPrefix(branch))) {
+    window.location = `./index.html`
+  }
+
+  firebase.auth().onAuthStateChanged(user => {
+    if (!user) {
+      window.location = './index.html'
+    }
+  })
+
+  document.getElementById('branch').innerText = `WEB ${branch.toUpperCase()}`
 }
 
 const modifyQueue = amount => {
-  document.getElementById('current-queue').value = (
-    parseInt(document.getElementById('current-queue').value) + amount
-  )
-    .toString()
-    .padStart(2, '0')
+  const queue = parseInt(document.getElementById('current-queue').value) + amount
+  document.getElementById('current-queue').value = queue.toString().padStart(2, '0')
 }
 
-const updateQueue = () => {
-  const value = document.getElementById('current-queue').value
-  firebase
-    .database()
-    .ref(`ywc-queue/${branch}`)
-    .set({
-      current: value,
-      custom: ''
-    })
-    .catch(err => {
-      alert(err)
-    })
+const publishQueue = () => {
+  firebase.database().ref(`ywc-queue/${branch}`).set({
+    current: document.getElementById('current-queue').value,
+    custom: ''
+  })
+  .catch(err => alert(err))
 }
 
 const publishCustomText = () => {
-  console.log('published')
-  firebase
-    .database()
-    .ref(`ywc-queue/${branch}`)
-    .update({
-      custom: document.getElementById('custom-queue').value
-    })
+  firebase.database().ref(`ywc-queue/${branch}`).update({
+    custom: document.getElementById('custom-queue').value
+  })
+  .catch(err => alert(err))
 }
 
-document.getElementById('branch').innerText = `WEB ${branch.toUpperCase()}`
+setup()
 
-firebase
-  .database()
-  .ref(`ywc-queue/${branch}`)
-  .once('value')
-  .then(snapshot => {
-    document.getElementById(
-      'current-queue'
-    ).value = snapshot.val().current.padStart(2, '0')
-  })
+firebase.database().ref(`ywc-queue/${branch}`).once('value').then(snapshot => {
+  document.getElementById('current-queue').value = snapshot.val().current.padStart(2, '0')
+})
 
-firebase
-  .database()
-  .ref(`ywc-queue/${branch}`)
-  .on('value', snapshot => {
-    const val = snapshot.val()
-    document.getElementById('on-screen').innerText =
-      val.custom === '' ? prefix + val.current : val.custom
-  })
+firebase.database().ref(`ywc-queue/${branch}`).on('value', snapshot => {
+  const value = snapshot.val()
+  document.getElementById('on-screen').innerText =
+    value.custom !== '' ? value.custom : getPrefix(branch) + value.current
+})

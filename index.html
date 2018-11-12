@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>YWC16 | Queueing System</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway:400,500,700"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="animation.css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animation.css">
   </head>
+
   <body>
+    <!-- YWC Logo -->
     <div class="logo-container">
-      <a href="/ywc-queue"> <img id="ywc-logo" class="logo" src="./images/logo.svg" alt=""/></a>
+      <a href="./index.html">
+        <img id="ywc-logo" class="logo" src="./images/logo.svg" alt="">
+      </a>
     </div>
+
     <div class="branch-container">
-      <div
-        onclick="changePage('content')"
-        id="content-card"
-        class="branch-card"
-      >
+      <!-- Web Content -->
+      <div onclick="changePage('content')" id="content-card" class="branch-card">
         <div>
-          <img src="https://ywc16.ywc.in.th/images/branch/content.svg" alt="" />
+          <img src="./images/branches/content.svg" alt="content">
           <h3 class="color-content-dark branch-name">WEB CONTENT</h3>
         </div>
         <div>
@@ -31,32 +30,23 @@
           <h1 id="content-queue" class="current-queue color-content-dark">-</h1>
         </div>
       </div>
-      <div
-        onclick="changePage('programming')"
-        id="programming-card"
-        class="branch-card"
-      >
+
+      <!-- Web Programming -->
+      <div onclick="changePage('programming')" id="programming-card" class="branch-card">
         <div>
-          <img
-            src="https://ywc16.ywc.in.th/images/branch/programming.svg"
-            alt=""
-          />
+          <img src="./images/branches/programming.svg" alt="programming">
           <h3 class="color-programming-dark branch-name">WEB PROGRAMMING</h3>
         </div>
         <div>
           <h1 class="current-queue-text color-purple"><u>คิวปัจจุบัน</u></h1>
-          <h1 id="programming-queue" class="current-queue color-programming-dark">
-            -
-          </h1>
+          <h1 id="programming-queue" class="current-queue color-programming-dark">-</h1>
         </div>
       </div>
-      <div
-        onclick="changePage('designer')"
-        id="designer-card"
-        class="branch-card"
-      >
+
+      <!-- Web Designer -->
+      <div onclick="changePage('designer')" id="designer-card" class="branch-card">
         <div>
-          <img src="https://ywc16.ywc.in.th/images/branch/designer.svg" alt="" />
+          <img src="./images/branches/designer.svg" alt="designer">
           <h3 class="color-designer-dark branch-name">WEB DESIGNER</h3>
         </div>
         <div>
@@ -66,29 +56,33 @@
           </h1>
         </div>
       </div>
-      <div
-        onclick="changePage('marketing')"
-        id="marketing-card"
-        class="branch-card"
-      >
+
+      <!-- Web Merketing -->
+      <div onclick="changePage('marketing')" id="marketing-card" class="branch-card">
         <div>
-          <img src="https://ywc16.ywc.in.th/images/branch/marketing.svg" alt="" />
+          <img src="./images/branches/marketing.svg" alt="marketing">
           <h3 class="color-marketing-dark branch-name">WEB MARKETING</h3>
         </div>
         <div>
           <h1 class="current-queue-text color-purple"><u>คิวปัจจุบัน</u></h1>
-          <h1 id="marketing-queue" class="current-queue color-marketing-dark">
-            -
-          </h1>
+          <h1 id="marketing-queue" class="current-queue color-marketing-dark">-</h1>
         </div>
       </div>
     </div>
+
+    <!-- QR Code -->
     <div class="logo-container">
       <h1 id="check-queue-text">ตรวจสอบคิวได้ที่นี่</h1>
-      <img src="./images/qrcode.png" alt="">
+      <img src="./images/qrcode.png" alt="qrcode">
       <br>
-      <a href="https://kykungz.github.io/ywc-queue">https://kykungz.github.io/ywc-queue</a>
+      <a href="https://kykungz.github.io/ywc-queue">
+        https://kykungz.github.io/ywc-queue
+      </a>
     </div>
+
+    <footer>
+      YWC Queueing System @2018 Created by <a href="https://github.com/kykungz">Kongpon C.</a>
+    </footer>
 
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>
@@ -106,6 +100,7 @@
       firebase.initializeApp(config)
     </script>
     <script src="./lib/hammer.js"></script>
+    <script src="./lib/getPrefix.js"></script>
     <script src="index.js"></script>
     <script src="login.js"></script>
   </body>
