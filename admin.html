@@ -9,9 +9,9 @@
       href="https://fonts.googleapis.com/css?family=Raleway:400,500,700"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="admin.css" />
-    <link rel="stylesheet" href="animation.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/admin.css" />
+    <link rel="stylesheet" href="./css/animation.css" />
   </head>
   <body>
     <!-- YWC Logo -->
@@ -56,6 +56,16 @@
       </button>
     </center>
 
+    <!-- QR Code -->
+    <div class="logo-container">
+      <h1 id="check-queue-text">ตรวจสอบคิวได้ที่นี่</h1>
+      <img src="./images/qrcode.png" alt="qrcode">
+      <br>
+      <a href="https://kykungz.github.io/ywc-queue">
+        https://kykungz.github.io/ywc-queue
+      </a>
+    </div>
+
     <footer>
       YWC Queueing System @2018 Created by <a href="https://github.com/kykungz">Kongpon C.</a>
     </footer>
@@ -76,8 +86,8 @@
       firebase.initializeApp(config)
     </script>
     <script src="./lib/hammer.js"></script>
-    <script src="./lib/getPrefix.js"></script>
-    <script src="admin.js"></script>
-    <script src="login.js"></script>
+    <script src="./js/getPrefix.js"></script>
+    <script src="./js/admin.js"></script>
+    <script src="./js/login.js"></script>
   </body>
 </html>

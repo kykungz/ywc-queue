@@ -7,17 +7,6 @@ const timer = {
   marketing: null
 }
 
-const login = () => {
-  if (firebase.auth().currentUser) {
-    firebase.auth().signOut().then(() => alert('Logged out'))
-  } else {
-    const password = prompt('Enter password')
-    firebase.auth().signInWithEmailAndPassword('jackykongpon@gmail.com', password)
-      .then(() => alert('Welcome Admin!'))
-      .catch(() => alert('Incorrect Password'))
-  }
-}
-
 const changePage = branch => {
   if (firebase.auth().currentUser) {
     window.location = `./admin.html?branch=${branch}`

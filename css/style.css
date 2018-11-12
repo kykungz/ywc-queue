@@ -2,7 +2,7 @@
   font-family: 'Supermarket';
   font-style: normal;
   font-weight: 400;
-  src: url(supermarket-webfont.woff) format('woff');
+  src: url(../fonts/supermarket-webfont.woff) format('woff');
 }
 
 * {
@@ -11,7 +11,7 @@
 
 body {
   margin: 1em;
-  background-image: url(images/bg.png),
+  background-image: url(../images/bg.png),
     linear-gradient(to bottom, white, #e3e0f1);
   background-position: center;
   background-size: cover;
