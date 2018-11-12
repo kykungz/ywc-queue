@@ -1,10 +1,8 @@
-<center>
-  <h1>YWC Queueing System</h1>
+<h1 align="center">YWC Queueing System</h1>
 
-  <p>Queueing System for Young Webmaster Camp with remote control</p>
+<p align="center">Queueing System for Young Webmaster Camp with remote control</p>
 
-  <p>https://kykungz.github.io/ywc-queue</p>
-</center>
+<p align="center">https://kykungz.github.io/ywc-queue</p>
 
 ## Features
 - Home
