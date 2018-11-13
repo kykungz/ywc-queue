@@ -29,3 +29,8 @@ button {
   cursor: pointer;
   margin-top: 0.5em;
 }
+
+center {
+  margin: auto;
+  max-width: 600px;
+}
