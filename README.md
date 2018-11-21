@@ -5,8 +5,11 @@
 <p align="center">https://kykungz.github.io/ywc-queue</p>
 
 ## Preview
-<img width="60%" src="./images/home2.png">
-<img width="32%" src="./images/admin.png">
+<div>
+<img width="64%" src="./images/home.png">
+<img width="34%" src="./images/admin.png">
+</div>
+
 
 ## Features
 - Home
